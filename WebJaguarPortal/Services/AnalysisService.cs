@@ -23,7 +23,7 @@ namespace WebJaguarPortal.Services
             this.fileRepo = fileRepo;
         }
 
-        public long New(string projectKey, int testsFail, int testsPass)
+        public long New(string projectKey, ControlFlowAnalysis analysis)
         {
             var proj = projectRepo.GetByKey(projectKey);
 
@@ -35,8 +35,13 @@ namespace WebJaguarPortal.Services
                 ProjectId = proj.Id,
                 Status = StatusAnalysis.InProgress,
                 StartAnalysis = DateTime.UtcNow,
-                TestsFail = testsFail,
-                TestsPass = testsPass
+                TestsFail = analysis.TestsFail,
+                TestsPass = analysis.TestsPass,
+                Provider = analysis.Provider,
+                Repository = analysis.Repository,
+                PullRequestBase = analysis.PullRequestBase,
+                PullRequestBranch = analysis.PullRequestBranch,
+                PullRequestNumber = analysis.PullRequestNumber
             };
 
             analysisRepo.Add(obj);
@@ -105,6 +110,14 @@ namespace WebJaguarPortal.Services
         internal ClassAnalysis? GetClassById(long id)
         {
             return classRepo.GetById(id);
+        }
+        internal void Delete(long id)
+        {
+            var analysis = analysisRepo.GetById(id);
+            if (analysis == null)
+                throw new Exception("Analysis not found");
+            analysisRepo.Delete(analysis);
+            analysisRepo.SaveChanges();
         }
 
         public IEnumerable<ViewModels.FileManagerItemViewModel> Convert(IEnumerable<ClassAnalysis> classes, IEnumerable<string> files)
