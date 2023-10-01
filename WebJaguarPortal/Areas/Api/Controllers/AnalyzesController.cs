@@ -28,7 +28,7 @@ namespace WebJaguarPortal.Areas.Api.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = RolesUtil.AnalyzesNew)]
         public IActionResult Initialize(Models.AnalysisControlFlowModel model)
         {
-            long id = service.New(model.ProjectKey);
+            long id = service.New(model.ProjectKey, model.TestsFail, model.TestsPass);
             return Ok(new Models.AnalysisControlFlowResponseModel { Id = id });
         }
 

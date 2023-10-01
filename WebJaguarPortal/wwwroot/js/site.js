@@ -581,22 +581,22 @@ function highlightSup() {
     objSusp.A2.forEach(function (line, e) {
         var item = $('div[data-line-number=' + [0] + ']');
         $('div[data-line-number=' + line[0] + ']').parent().parent().addClass('suspA2');
-        $('div[data-line-number=' + line[0] + ']').parent().parent().attrattrattr('title', line[1]);
+        $('div[data-line-number=' + line[0] + ']').parent().parent().attr('title', line[1]);
     })
     objSusp.A3.forEach(function (line, e) {
         var item = $('div[data-line-number=' + line[0] + ']');
-        $('div[data-line-number=' + line[0] + ']').parent().parent().addClass('suspA2');
-        $('div[data-line-number=' + line[0] + ']').parent().parent().setAttribute('title', line[1]);
+        $('div[data-line-number=' + line[0] + ']').parent().parent().addClass('suspA3');
+        $('div[data-line-number=' + line[0] + ']').parent().parent().attr('title', line[1]);
     })
     objSusp.A4.forEach(function (line, e) {
         var item = $('div[data-line-number=' + line[0] + ']');
-        $('div[data-line-number=' + line + ']').parent().parent().addClass('suspA4');
-        $('div[data-line-number=' + line[0] + ']').parent().parent().setAttribute('title', line[1]);
+        $('div[data-line-number=' + line[0] + ']').parent().parent().addClass('suspA4');
+        $('div[data-line-number=' + line[0] + ']').parent().parent().attr('title', line[1]);
     })
     objSusp.A5.forEach(function (line, e) {
         var item = $('div[data-line-number=' + line[0] + ']');
         $('div[data-line-number=' + line[0] + ']').parent().parent().addClass('suspA5');
-        $('div[data-line-number=' + line[0] + ']').parent().parent().attr('title') = line[1];
+        $('div[data-line-number=' + line[0] + ']').parent().parent().attr('title', line[1]);
     })
 }
 function defineSup() {

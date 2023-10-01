@@ -270,22 +270,27 @@ table tr.selected {
 
 .suspA1 td:first-child {
     background-color: #FF0000;
+    color:#333;
 }
 
 .suspA2 td:first-child {
-    background-color: #FFA500;
+    background-color: #FF4500;
+    color:#333;
 }
 
 .suspA3 td:first-child {
-    background-color: #FFFF00;
+    background-color: #FFA500;
+    color:#333;
 }
 
 .suspA4 td:first-child {
-    background-color: #00FFFF;
+    background-color: #ADFF2F;
+    color:#333;
 }
 
 .suspA5 td:first-child {
-    background-color: #0000FF;
+    background-color: #00FF00;
+    color:#333;
 }
 
 .suspA1 {
@@ -293,17 +298,17 @@ table tr.selected {
 }
 
 .suspA2 {
-    border: 1px solid #FFA500;
+    border: 1px solid #FF4500;
 }
 
 .suspA3 {
-    border: 1px solid #FFFF00;
+    border: 1px solid #FFA500;
 }
 
 .suspA4 {
-    border: 1px solid #00FFFF;
+    border: 1px solid #ADFF2F;
 }
 
 .suspA5 {
-    border: 1px solid #0000FF;
+    border: 1px solid #00FF00;
 }

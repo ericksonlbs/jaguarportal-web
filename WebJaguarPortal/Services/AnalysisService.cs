@@ -23,7 +23,7 @@ namespace WebJaguarPortal.Services
             this.fileRepo = fileRepo;
         }
 
-        public long New(string projectKey)
+        public long New(string projectKey, int testsFail, int testsPass)
         {
             var proj = projectRepo.GetByKey(projectKey);
 
@@ -34,7 +34,9 @@ namespace WebJaguarPortal.Services
             {
                 ProjectId = proj.Id,
                 Status = StatusAnalysis.InProgress,
-                StartAnalysis = DateTime.UtcNow
+                StartAnalysis = DateTime.UtcNow,
+                TestsFail = testsFail,
+                TestsPass = testsPass
             };
 
             analysisRepo.Add(obj);

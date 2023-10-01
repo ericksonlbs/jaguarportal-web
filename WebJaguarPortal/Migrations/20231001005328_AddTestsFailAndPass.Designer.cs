@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebJaguarPortal.Infrastructure;
@@ -11,9 +12,11 @@ using WebJaguarPortal.Infrastructure;
 namespace WebJaguarPortal.Migrations
 {
     [DbContext(typeof(JaguarDbContext))]
-    partial class JaguarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231001005328_AddTestsFailAndPass")]
+    partial class AddTestsFailAndPass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

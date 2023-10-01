@@ -22,6 +22,9 @@
                             Status
                         </td>
                         <td>
+                            Tests Pass/Total
+                        </td>
+                        <td>
                             Created at
                         </td>
                         <td>
@@ -37,6 +40,7 @@
                             <td>@item.ProjectName</td>
                             <td>@item.Version</td>
                             <td>@item.Status</td>
+                            <td>@Html.Raw($"{item.TestsPass}/{item.TestsFail + @item.TestsPass}")</td>
                             <td>@item.CreatedAt</td>
                             <td>@item.UpdatedAt</td>
                             <td class="text-end">

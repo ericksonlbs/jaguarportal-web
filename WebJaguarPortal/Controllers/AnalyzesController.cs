@@ -40,6 +40,8 @@ namespace WebJaguarPortal.Controllers
                     Status = item.Status == Models.StatusAnalysis.InProgress ? "In progess" : item.Status == Models.StatusAnalysis.Completed ? "Completed" : "Error",
                     ProjectName = item.Project.Name,
                     Id = item.Id,
+                    TestsFail = item.TestsFail,
+                    TestsPass = item.TestsPass,
                     UpdatedAt = item.EndAnalysis,
 
                 });

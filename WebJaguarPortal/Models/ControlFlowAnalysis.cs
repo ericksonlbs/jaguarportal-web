@@ -17,6 +17,8 @@ namespace WebJaguarPortal.Models
         public DateTime StartAnalysis { get; set; }
         public DateTime? EndAnalysis { get; set; }
         public string? MessageError { get; set; }
+        public int TestsFail { get; set; }
+        public int TestsPass { get; set; }
     }
 
     public enum StatusAnalysis
