@@ -11,7 +11,7 @@ html, body {
     color: #ddd;
 }
 
-.containerMain {    
+.containerMain {
     display: flex;
     height: 100vh;
 }
@@ -53,24 +53,27 @@ html, body {
     height: 25%;
 }
 
-.menu-panel {    
+.menu-panel {
     margin: 5px 0 5px 5px;
     /*border: 1px solid #333;*/
-    background-color:#333;
+    background-color: #333;
     font-size: 22px;
     text-align: center;
     padding: 0px 10px;
-    width:50px;
+    width: 50px;
 }
-.menu-panel .logo{
-    width:28px;
-}
+
+    .menu-panel .logo {
+        width: 28px;
+    }
+
     .menu-panel a i {
         color: #ddd;
     }
-    .menu-panel a i:hover {
-        color: #0094ff;
-    }
+
+        .menu-panel a i:hover {
+            color: #0094ff;
+        }
 
     .menu-panel div {
         padding: 10px 0;
@@ -85,7 +88,7 @@ html, body {
         position: absolute;
         text-align: center;
         bottom: 0;
-        width:30px;
+        width: 30px;
     }
 
 
@@ -158,6 +161,7 @@ ul[role="tree"] {
     padding-left: 5px;
     vertical-align: middle;
 }
+
 [role="treeitem"].java::before {
     font-family: "FontAwesome";
     content: "\f4e4";
@@ -166,6 +170,7 @@ ul[role="tree"] {
     padding-left: 5px;
     vertical-align: middle;
 }
+
 [role="treeitem"].code::before {
     font-family: "FontAwesome";
     content: "\f121";
@@ -183,7 +188,7 @@ ul[role="tree"] {
     display: block;
 }
 
-[role="treeitem"][aria-expanded="false"] > span::before {    
+[role="treeitem"][aria-expanded="false"] > span::before {
     font-family: "FontAwesome";
     content: "\f07b";
     display: inline-block;
@@ -193,7 +198,7 @@ ul[role="tree"] {
 }
 
 [role="treeitem"][aria-expanded="true"] > span::before {
-    font-family: "FontAwesome";    
+    font-family: "FontAwesome";
     content: "\f07c";
     display: inline-block;
     padding-right: 3px;
@@ -261,36 +266,42 @@ ul[role="tree"] {
         max-width: 400px;
         text-align: center;
     }
-.cursor-pointer{
-    cursor:pointer;
+
+.cursor-pointer {
+    cursor: pointer;
 }
+
 table tr.selected {
     background-color: #4b4b4b;
 }
 
+.table-dark a, .table-dark a:visited, .table-dark a:link {
+    color: white;
+}
+
 .suspA1 td:first-child {
     background-color: #FF0000;
-    color:#333;
+    color: #333;
 }
 
 .suspA2 td:first-child {
     background-color: #FF4500;
-    color:#333;
+    color: #333;
 }
 
 .suspA3 td:first-child {
     background-color: #FFA500;
-    color:#333;
+    color: #333;
 }
 
 .suspA4 td:first-child {
     background-color: #ADFF2F;
-    color:#333;
+    color: #333;
 }
 
 .suspA5 td:first-child {
     background-color: #00FF00;
-    color:#333;
+    color: #333;
 }
 
 .suspA1 {

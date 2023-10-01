@@ -42,8 +42,12 @@ namespace WebJaguarPortal.Controllers
                     Id = item.Id,
                     TestsFail = item.TestsFail,
                     TestsPass = item.TestsPass,
-                    UpdatedAt = item.EndAnalysis,
-
+                    PullRequestBase = item.PullRequestBase,
+                    PullRequestBranch = item.PullRequestBranch,
+                    PullRequestNumber = item.PullRequestNumber,
+                    Provider = item.Provider,
+                    Repository = item.Repository,
+                    UpdatedAt = item.EndAnalysis
                 });
             }
 
@@ -63,6 +67,13 @@ namespace WebJaguarPortal.Controllers
                     Status = item.Status == Models.StatusAnalysis.InProgress ? "In progess" : item.Status == Models.StatusAnalysis.Completed ? "Completed" : "Error",
                     ProjectName = item.Project.Name,
                     Id = item.Id,
+                    TestsFail = item.TestsFail,
+                    TestsPass = item.TestsPass,
+                    PullRequestBase = item.PullRequestBase,
+                    PullRequestBranch = item.PullRequestBranch,
+                    PullRequestNumber = item.PullRequestNumber,
+                    Provider = item.Provider,
+                    Repository = item.Repository,
                     UpdatedAt = item.EndAnalysis,
 
                 });
@@ -98,6 +109,43 @@ namespace WebJaguarPortal.Controllers
             detail.Susp = lines;
 
             return View(detail);
+        }
+
+
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = RolesUtil.AnalyzesDelete)]
+        public IActionResult Delete(long id)
+        {
+            var item = analysisService.GetById(id);
+            if (item == null)
+            {
+                TempData["AlertFade"] = "Analysis not found";
+                return RedirectToAction("Index");
+            }
+
+            AnalyzeDeleteViewModel obj = new()
+            {
+                CreatedAt = item.StartAnalysis,
+                ProjectName = item.Project.Name,
+                Id = item.Id,
+                Repository = item.Repository,
+            };
+            return View("Delete", obj);
+        }
+
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = RolesUtil.AnalyzesDelete)]
+        public IActionResult Delete(AnalyzeDeleteViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                analysisService.Delete(model.Id);
+
+                TempData["AlertFade"] = "Analysis successfully deleted";
+                return RedirectToAction("Index");
+            }
+
+            return View("Delete", model);
         }
 
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = RolesUtil.AnalyzesDetail)]

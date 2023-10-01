@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Intrinsics.Arm;
 using WebJaguarPortal.Areas.Api.Models;
 using WebJaguarPortal.Infrastructure;
 using WebJaguarPortal.Models;
@@ -28,7 +29,18 @@ namespace WebJaguarPortal.Areas.Api.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = RolesUtil.AnalyzesNew)]
         public IActionResult Initialize(Models.AnalysisControlFlowModel model)
         {
-            long id = service.New(model.ProjectKey, model.TestsFail, model.TestsPass);
+            ControlFlowAnalysis analysis = new ControlFlowAnalysis()
+            {
+                TestsFail = model.TestsFail,
+                TestsPass = model.TestsPass,
+                Provider = model.Provider,
+                Repository = model.Repository,
+                PullRequestBase = model.PullRequestBase ?? string.Empty,
+                PullRequestBranch = model.PullRequestBranch ?? string.Empty,
+                PullRequestNumber = model.PullRequestNumber ?? string.Empty
+            };
+
+            long id = service.New(model.ProjectKey, analysis);
             return Ok(new Models.AnalysisControlFlowResponseModel { Id = id });
         }
 
